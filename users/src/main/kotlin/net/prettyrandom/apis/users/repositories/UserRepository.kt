@@ -1,8 +1,8 @@
 package net.prettyrandom.apis.users.repositories
 
 import net.prettyrandom.apis.users.models.User
+import org.springframework.data.repository.CrudRepository
+import org.springframework.stereotype.Repository
 
-interface UserRepository {
-    fun findById(id: String): User?
-    fun save(user: User): User
-}
+@Repository
+interface UserRepository : CrudRepository<User, String>

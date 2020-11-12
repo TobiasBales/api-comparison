@@ -3,3 +3,6 @@ server:
 spring:
   application:
     name: users
+graphql:
+  packages:
+    - net.prettyrandom.apis.users
