@@ -5,6 +5,7 @@ plugins {
 	id("io.spring.dependency-management") version "1.0.10.RELEASE"
 	kotlin("jvm") version "1.4.10"
 	kotlin("plugin.spring") version "1.4.10"
+	kotlin("plugin.jpa") version "1.4.10"
 }
 
 group = "net.prettyrandom.apis"
@@ -28,6 +29,7 @@ extra["springCloudVersion"] = "2020.0.0-SNAPSHOT"
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
@@ -35,7 +37,9 @@ dependencies {
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
 	implementation("org.springframework.cloud:spring-cloud-starter-sleuth")
 	implementation("org.springframework.cloud:spring-cloud-starter-zipkin")
+	implementation("com.expediagroup:graphql-kotlin-spring-server:4.0.0-alpha.7")
 	runtimeOnly("io.micrometer:micrometer-registry-prometheus")
+	runtimeOnly("com.h2database:h2")
 	annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.projectreactor:reactor-test")
