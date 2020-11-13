@@ -1,0 +1,5 @@
+query RepositoriesQuery($id: String!) {
+    findById(id: $id) {
+        id
+    }
+}
