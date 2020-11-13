@@ -1,8 +1,10 @@
+import com.expediagroup.graphql.plugin.generator.GraphQLClientType
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
 	id("org.springframework.boot") version "2.4.0"
 	id("io.spring.dependency-management") version "1.0.10.RELEASE"
+	id("com.expediagroup.graphql") version "4.0.0-alpha.7"
 	kotlin("jvm")
 	kotlin("plugin.spring") version "1.4.10"
 }
@@ -35,6 +37,7 @@ dependencies {
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
 	implementation("org.springframework.cloud:spring-cloud-starter-sleuth")
 	implementation("org.springframework.cloud:spring-cloud-starter-zipkin")
+	implementation("com.expediagroup:graphql-kotlin-spring-client:4.0.0-alpha.7")
 	runtimeOnly("io.micrometer:micrometer-registry-prometheus")
 	annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
@@ -57,3 +60,13 @@ tasks.withType<KotlinCompile> {
 		jvmTarget = "11"
 	}
 }
+
+graphql {
+	client {
+		endpoint = "http://localhost:8082/graphql"
+		packageName = "net.prettyrandom.apis.gateway.generated.users"
+		clientType = GraphQLClientType.WEBCLIENT
+	}
+
+}
+
