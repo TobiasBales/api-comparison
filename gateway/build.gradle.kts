@@ -1,12 +1,13 @@
 import com.expediagroup.graphql.plugin.generator.GraphQLClientType
+import com.expediagroup.graphql.plugin.gradle.graphql
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-	id("org.springframework.boot") version "2.4.0"
-	id("io.spring.dependency-management") version "1.0.10.RELEASE"
-	id("com.expediagroup.graphql") version "4.0.0-alpha.7"
+	id("org.springframework.boot")
+	id("io.spring.dependency-management")
+	id("com.expediagroup.graphql")
 	kotlin("jvm")
-	kotlin("plugin.spring") version "1.4.10"
+	kotlin("plugin.spring")
 }
 
 group = "net.prettyrandom.apis"
